@@ -10,6 +10,7 @@ namespace YoungEnterpriseExamProject
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
