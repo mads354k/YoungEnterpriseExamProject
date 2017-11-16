@@ -28,15 +28,6 @@ namespace YoungEnterpriseExamProject.Testing
                 Console.WriteLine("Getting persons tests failed!");
             }
 
-            if (TestUpdatePerson())
-            {
-                Console.WriteLine("Updating persons tests passed!");
-            }
-            else
-            {
-                Console.WriteLine("Updating persons tests failed!");
-            }
-
             if (TestAddTeam())
             {
                 Console.WriteLine("Adding teams tests passed!");
@@ -44,6 +35,15 @@ namespace YoungEnterpriseExamProject.Testing
             else
             {
                 Console.WriteLine("Adding teams tests failed!");
+            }
+
+            if (TestUpdatePerson())
+            {
+                Console.WriteLine("Updating persons tests passed!");
+            }
+            else
+            {
+                Console.WriteLine("Updating persons tests failed!");
             }
 
             if (TestGetTeamMembers())
@@ -151,6 +151,32 @@ namespace YoungEnterpriseExamProject.Testing
             string lastName = "Peter";
 
             Server.EF.Person[] persons = facade.GetPersons(firstName, lastName);
+
+            if (persons != null && persons.Length == 1)
+            {
+                foreach (var item in persons)
+                {
+                    if (item.FirstName.Equals(firstName) && item.LastName.Equals(lastName))
+                    {
+                        Console.WriteLine("This person exits! - Test passed");
+                    }
+                    else
+                    {
+                        Console.WriteLine("This person does not exist! - Test failed");
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Could not find person(s)! - Test failed");
+                return false;
+            }
+
+            firstName = "Jens";
+            lastName = "Hansen";
+
+            persons = facade.GetPersons(firstName, lastName);
 
             if (persons != null && persons.Length == 2)
             {
@@ -335,7 +361,7 @@ namespace YoungEnterpriseExamProject.Testing
                 return false;
             }
 
-            if (facade.DeletePerson(3))
+            if (!facade.DeletePerson(3))
             {
                 Console.WriteLine("Could not find person! - Test passed");
             }
@@ -370,11 +396,11 @@ namespace YoungEnterpriseExamProject.Testing
 
             if (!facade.UpdateTeam(oldTeamName, newTeamName, track, school, participating))
             {
-                Console.WriteLine("Team not found! - Test failed");
+                Console.WriteLine("Team not found! - Test passed");
             }
             else
             {
-                Console.WriteLine("Team Updated!-Test passed");
+                Console.WriteLine("Team Updated!-Test failed");
                 return false;
             }
 
@@ -389,7 +415,7 @@ namespace YoungEnterpriseExamProject.Testing
 
             Server.EF.Team team = facade.GetTeam(teamName);
 
-            if (team != null && team.Equals(teamName))
+            if (team != null && team.TeamName.Equals(teamName))
             {
                 Console.WriteLine("Team found! - Test passed");
             }
@@ -405,11 +431,11 @@ namespace YoungEnterpriseExamProject.Testing
 
             if (team == null)
             {
-                Console.WriteLine("Team not found! - Test failed");
+                Console.WriteLine("Team not found! - Test passed");
             }
             else
             {
-                Console.WriteLine("Team found! - Test passed");
+                Console.WriteLine("Team found! - Test failed");
                 return false;
             }
 
@@ -432,7 +458,7 @@ namespace YoungEnterpriseExamProject.Testing
                 return false;
             }
 
-            if (facade.DeleteTeam(teamName))
+            if (!facade.DeleteTeam(teamName))
             {
                 Console.WriteLine("Could not find team! - Test passed");
             }

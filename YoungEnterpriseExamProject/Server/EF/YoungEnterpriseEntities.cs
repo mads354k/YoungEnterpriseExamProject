@@ -10,6 +10,7 @@ namespace YoungEnterpriseExamProject.Server.EF
         public YoungEnterpriseEntities()
             : base("name=YoungEnterpriseEntities")
         {
+            Database.SetInitializer<YoungEnterpriseEntities>(new DropCreateDatabaseAlways<YoungEnterpriseEntities>());
         }
 
         public virtual DbSet<Account> Account { get; set; }
