@@ -20,5 +20,10 @@ namespace YoungEnterpriseExamProject.Server
         bool DeletePerson(int personId);
 
 
+
+        //bool AddAccount(string userName, string password,int personId);
+        //EF.Account GetAccount(string userName, string password);
+        //bool UpdateAccount(string userName, string password);
+        //bool DeleteAccount(string userName);
     }
 }

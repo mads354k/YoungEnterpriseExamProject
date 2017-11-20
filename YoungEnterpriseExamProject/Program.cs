@@ -12,7 +12,10 @@ namespace YoungEnterpriseExamProject
        
         static void Main(string[] args)
         {
-            FacadeTest test = new FacadeTest();
+            //FacadeTest test = new FacadeTest();
+            //test.TestReleaseOne();
+
+            UseCaseTest test = new UseCaseTest();
             test.TestReleaseOne();
         }
     }

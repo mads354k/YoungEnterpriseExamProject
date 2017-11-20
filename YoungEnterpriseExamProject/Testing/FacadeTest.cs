@@ -94,6 +94,11 @@ namespace YoungEnterpriseExamProject.Testing
             Console.Read();
         }
 
+        public void TestReleaseTwo()
+        {
+
+        }
+
         private bool TestAddPerson()
         {
             Server.IDataFacade facade = new Server.DBFacade();
