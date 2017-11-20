@@ -129,6 +129,7 @@ namespace YoungEnterpriseExamProject.Testing
 
             if (team == null || !team.TeamName.Equals("Random"))
             {
+                Console.WriteLine(1);
                 return false;
             }
 
@@ -136,6 +137,7 @@ namespace YoungEnterpriseExamProject.Testing
 
             if (team == null || !team.TeamName.Equals("None"))
             {
+                Console.WriteLine(2);
                 return false;
             }
 
@@ -143,6 +145,7 @@ namespace YoungEnterpriseExamProject.Testing
 
             if (team == null || !team.TeamName.Equals("FishEater"))
             {
+                Console.WriteLine(3);
                 return false;
             }
 
@@ -150,6 +153,7 @@ namespace YoungEnterpriseExamProject.Testing
 
             if (team != null)
             {
+                Console.WriteLine(4);
                 return false;
             }
 
@@ -162,21 +166,25 @@ namespace YoungEnterpriseExamProject.Testing
 
             if (!controller.UpdateTeam("None", "Something", null, null, false))
             {
+                Console.WriteLine(1);
                 return false;
             }
 
-            if (!controller.UpdateTeam("Somthing", "Something", "Society & Globalization", "VUC", false))
+            if (!controller.UpdateTeam("Something", "Something", "Society & Globalization", "VUC", false))
             {
+                Console.WriteLine(2);
                 return false;
             }
 
             if (controller.UpdateTeam("None", "None", null, null, false))
             {
+                Console.WriteLine(3);
                 return false;
             }
 
-            if (!controller.UpdateTeam("Random", "Random", null, null, true))
+            if (!controller.UpdateTeam("Random", "Random", null, null, false))
             {
+                Console.WriteLine(4);
                 return false;
             }
 
@@ -189,11 +197,13 @@ namespace YoungEnterpriseExamProject.Testing
 
             if (!controller.DeleteTeam("Random"))
             {
+                Console.WriteLine(1);
                 return false;
             }
 
             if (controller.DeleteTeam("Random"))
             {
+                Console.WriteLine(2);
                 return false;
             }
 
@@ -208,6 +218,7 @@ namespace YoungEnterpriseExamProject.Testing
 
             if (team == null || !team.TeamName.Equals("Random"))
             {
+                Console.WriteLine(1);
                 return false;
             }
 
@@ -215,6 +226,7 @@ namespace YoungEnterpriseExamProject.Testing
 
             if (team == null || !team.TeamName.Equals("Something"))
             {
+                Console.WriteLine(2);
                 return false;
             }
 
@@ -222,6 +234,7 @@ namespace YoungEnterpriseExamProject.Testing
 
             if (team != null)
             {
+                Console.WriteLine(3);
                 return false;
             }
 
@@ -234,22 +247,26 @@ namespace YoungEnterpriseExamProject.Testing
 
             if (!controller.RegisterTeam("Random"))
             {
+                Console.WriteLine(1);
                 return false;
             }
 
             if (controller.RegisterTeam("Random"))
             {
+                Console.WriteLine(2);
                 return false;
             }
 
             if (controller.RegisterTeam("Exist"))
             {
+                Console.WriteLine(3);
                 return false;
             }
 
             return true;
         }
 
+        // For web
         private bool TestUploadReport()
         {
             Server.Controller controller = new Server.Controller(new Server.DBFacade());

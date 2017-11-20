@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.12
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YoungEnterpriseExamProject", "YoungEnterpriseExamProject\YoungEnterpriseExamProject.csproj", "{2CC75CFE-1CEA-4EED-AD9F-5FE71889DA92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfYoungEnterpriseGUI", "WpfYoungEnterpriseGUI\WpfYoungEnterpriseGUI.csproj", "{28AFDCB1-82E4-457C-A0A1-F73AC21B8E06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{2CC75CFE-1CEA-4EED-AD9F-5FE71889DA92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CC75CFE-1CEA-4EED-AD9F-5FE71889DA92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CC75CFE-1CEA-4EED-AD9F-5FE71889DA92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28AFDCB1-82E4-457C-A0A1-F73AC21B8E06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28AFDCB1-82E4-457C-A0A1-F73AC21B8E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28AFDCB1-82E4-457C-A0A1-F73AC21B8E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28AFDCB1-82E4-457C-A0A1-F73AC21B8E06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2625B8E7-4A32-4D0B-BB95-4B99F08B3AD2}
 	EndGlobalSection
 EndGlobal

@@ -18,34 +18,55 @@ namespace YoungEnterpriseExamProject.Server
 
         public EF.Team CreateTeam(string teamName, string track, string school, bool participating)
         {
-            EF.Team team = null;
+            EF.Team newTeam = null;
 
-            return team;
+            EF.Team team = facade.GetTeam(teamName);
+
+            if (team != null)
+            {
+                return null;
+            }
+
+            newTeam = new EF.Team {
+                TeamName = teamName,
+                Track = track,
+                School = school,
+                Participant = participating
+            };
+
+            if (!facade.AddTeam(teamName,track,school,participating))
+            {
+                return null;
+            }
+
+            return newTeam;
         }
 
         public bool UpdateTeam(string oldName, string newName, string track, string school, bool participating)
         {
-
-            return true;
+            return facade.UpdateTeam(oldName, newName, track, school, participating);
         }
 
         public bool DeleteTeam(string teamName)
         {
-
-            return true;
+            return facade.DeleteTeam(teamName);
         }
 
         public EF.Team GetTeamInfo(string teamName)
         {
-            EF.Team team = null;
+            EF.Team team = facade.GetTeam(teamName);
 
             return team;
         }
 
         public bool RegisterTeam(string teamName)
         {
-
-            return true;
+            Server.EF.Team team = facade.GetTeam(teamName);
+            if (team == null || team.Participant == true)
+            {
+                return false;
+            }
+            return facade.UpdateTeam(teamName,teamName,null,null,true);
         }
 
         public bool UploadReport()

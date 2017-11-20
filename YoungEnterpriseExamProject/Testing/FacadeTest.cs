@@ -384,10 +384,22 @@ namespace YoungEnterpriseExamProject.Testing
             Server.IDataFacade facade = new Server.DBFacade();
 
             string oldTeamName = "None";
-            string newTeamName = "Bay";
+            string newTeamName = "None";
             string track = "Trade & Skills";
             string school = null;
             bool participating = true;
+
+            if (facade.UpdateTeam(oldTeamName, newTeamName, track, school, participating))
+            {
+                Console.WriteLine("Team Updated! - Test passed");
+            }
+            else
+            {
+                Console.WriteLine("Team not found! - Test failed");
+                return false;
+            }
+
+            newTeamName = "Something";
 
             if (facade.UpdateTeam(oldTeamName,newTeamName,track,school,participating))
             {
@@ -416,7 +428,7 @@ namespace YoungEnterpriseExamProject.Testing
         {
             Server.IDataFacade facade = new Server.DBFacade();
 
-            string teamName = "Bay";
+            string teamName = "Something";
 
             Server.EF.Team team = facade.GetTeam(teamName);
 
@@ -451,7 +463,7 @@ namespace YoungEnterpriseExamProject.Testing
         {
             Server.IDataFacade facade = new Server.DBFacade();
 
-            string teamName = "Bay";
+            string teamName = "Something";
 
             if (facade.DeleteTeam(teamName))
             {

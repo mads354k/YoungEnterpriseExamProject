@@ -92,12 +92,12 @@ namespace YoungEnterpriseExamProject.Server
             {
                 return false;
             }
-            //Person[] persons = GetTeamMembers(name);
+            Person[] persons = GetTeamMembers(name);
 
-            //foreach (var item in persons)
-            //{
-            //    item.TeamName = null;
-            //}
+            foreach (var item in persons)
+            {
+                item.TeamName = null;
+            }
 
             context.Entry(team).State = EntityState.Deleted;
 
@@ -192,45 +192,79 @@ namespace YoungEnterpriseExamProject.Server
 
         public bool UpdateTeam(string oldName, string newName, string track, string school, bool participating)
         {
-            using (var context = new EF.YoungEnterpriseEntities())
+            if (!oldName.Equals(newName))
             {
-                Team team = context.Team.Find(oldName);
-
-                if (team == null)
+                using (var context = new EF.YoungEnterpriseEntities())
                 {
-                    return false;
+                    Team team = context.Team.Find(oldName);
+
+                    if (team == null)
+                    {
+                        return false;
+                    }
+
+                    context.Entry(team).State = EntityState.Deleted;
+                    try
+                    {
+                        context.SaveChanges();
+                    }
+                    catch (Exception)
+                    {
+                        return false;
+                    }
                 }
 
-                context.Entry(team).State = EntityState.Deleted;
-                try
+                using (var context = new EF.YoungEnterpriseEntities())
                 {
-                    context.SaveChanges();
-                }
-                catch (Exception)
-                {
-                    return false;
+                    Team team = new Team
+                    {
+                        TeamName = newName,
+                        Track = track,
+                        School = school,
+                        Participant = participating
+                    };
+
+                    context.Team.Add(team);
+
+                    try
+                    {
+                        context.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        return false;
+                    }
                 }
             }
-
-            using (var context = new EF.YoungEnterpriseEntities())
+            else
             {
-                Team team = new Team
+                using (var context = new EF.YoungEnterpriseEntities())
                 {
-                    TeamName = newName,
-                    Track = track,
-                    School = school,
-                    Participant = participating
-                };
+                    Team team = context.Team.Find(oldName);
 
-                context.Team.Add(team);
+                    if (team == null)
+                    {
+                        return false;
+                    }
 
-                try
-                {
-                    context.SaveChanges();
-                }
-                catch (Exception ex)
-                {
-                    return false;
+                    if (track != null)
+                    {
+                        team.Track = track;
+                    }
+                    if (school != null)
+                    {
+                        team.School = school;
+                    }
+                    team.Participant = participating; 
+                    
+                    try
+                    {
+                        context.SaveChanges();
+                    }
+                    catch (Exception)
+                    {
+                        return false;
+                    }
                 }
             }
 
