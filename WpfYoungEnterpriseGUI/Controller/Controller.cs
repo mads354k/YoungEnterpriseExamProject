@@ -89,28 +89,6 @@ namespace WpfYoungEnterpriseGUI.Controller
             return false;
         }
 
-        public bool ChangeTeamMembers(string teamName)
-        {
-
-            return false;
-        }
-
-        public bool ChangeTrack(string teamName, string track)
-        {
-
-            return false;
-        }
-
-        public bool ChangeTeamName(string oldName, string newName)
-        {
-
-            return false;
-        }
-
-        public bool SaveTeam()
-        {
-
-            return false;
-        }
+        
     }
 }

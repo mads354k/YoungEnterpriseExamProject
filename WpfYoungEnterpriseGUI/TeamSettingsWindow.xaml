@@ -16,12 +16,35 @@
     <StackPanel Orientation="Horizontal">
         <StackPanel>
             <TextBlock Text="Chose the following" HorizontalAlignment="Center"/>
-            <Button Name="bChangeTeamName" Content="Change team name"/>
-            <Button Name="bChangeTrack" Content="Change track"/>
-            <Button Name="bChangeTeamMembers" Content="Change team members"/>
-            <Button Name="bApply" Content="Apply for event"/>
-            <Button Name="bUploadReport" Content="Upload report"/>
-            <Button Name="bBack" Content="Back"/>
+            <TabControl>
+                <TabItem Name="bChangeTeamName">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="New team name"/>
+                        <TextBox Name="tbNewTeamName" Height="30" Margin="5"/>
+                        <Button Name="bUpdateTeamName" Content="Save change" Margin="5" Click="ChangeTeamName"/>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Name="bChangeTrack">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="New Track"/>
+                        <ComboBox Name="cbTrack" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5">
+                            <ComboBoxItem Content="Trade and Skills" Selector.IsSelected="True"/>
+                            <ComboBoxItem Content="Society and Globalization"/>
+                            <ComboBoxItem Content="Business and Service"/>
+                            <ComboBoxItem Content="Science and Technology"/>
+                        </ComboBox>
+                        <Button Name="bUpdateTrack" Content="Save change" Margin="5" Click="ChangeTrack"/>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Name="bChangeTeamMembers" Content="Change team members">
+
+                </TabItem>
+                <TabItem Name="bUploadReport" Content="Upload report">
+
+                </TabItem>
+            </TabControl>
+            <Button Name="bApply" Content="Apply for event" Click="ApplyForEvent"/>
+            <Button Name="bBack" Content="Back" Margin="20" Click="GoBack"/>
         </StackPanel>
     </StackPanel>
 </Window>

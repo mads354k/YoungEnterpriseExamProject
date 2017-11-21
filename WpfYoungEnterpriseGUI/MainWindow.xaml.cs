@@ -21,23 +21,18 @@ namespace WpfYoungEnterpriseGUI
     public partial class MainWindow : Window
     {
         Controller.Controller controller;
+        Facade.EF.Team team = null;
 
-        public MainWindow()
+        public MainWindow(Controller.Controller controller, Facade.EF.Team team)
         {
             InitializeComponent();
-            InitializeController();
-        }
-
-        private void InitializeController()
-        {
-            Facade.IDataFacade dataHandler = new Facade.DBFacade();
-
-            this.controller = new Controller.Controller(dataHandler);
+            this.controller = controller;
+            this.team = team;
         }
 
         private void ManageTeam(object sender, RoutedEventArgs e)
         {
-            TeamSettingsWindow window = new TeamSettingsWindow(controller);
+            TeamSettingsWindow window = new TeamSettingsWindow(controller,team);
             this.Close();
             window.Show();
         }

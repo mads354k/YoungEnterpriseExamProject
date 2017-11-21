@@ -20,11 +20,30 @@ namespace WpfYoungEnterpriseGUI
     public partial class CreatingTeamWindow : Window
     {
         Controller.Controller controller;
+        Facade.EF.Team team;
 
         public CreatingTeamWindow(Controller.Controller controller)
         {
             InitializeComponent();
             this.controller = controller;
+        }
+
+        private void CreateTeam(object sender, RoutedEventArgs e)
+        {
+            string teamName = tbTeamName.Text;
+            string track = cbTrack.SelectionBoxItem.ToString();
+            string school = null;
+
+            team = controller.CreateTeam(teamName,track,school,false);
+
+            // todo add persons to the team...
+        }
+
+        private void GoBack(object sender, RoutedEventArgs e)
+        {
+            MainWindow window = new MainWindow(controller,team);
+            this.Close();
+            window.Show();
         }
     }
 }

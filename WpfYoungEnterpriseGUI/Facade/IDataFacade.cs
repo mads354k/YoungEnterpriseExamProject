@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfYoungEnterpriseGUI.Facade
 {
-    interface IDataFacade
+    public interface IDataFacade
     {
         bool AddTeam(string teamName, string track, string school, bool participating);
         EF.Team GetTeam(string teamName);

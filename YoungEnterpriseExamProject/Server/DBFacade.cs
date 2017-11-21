@@ -26,7 +26,7 @@ namespace YoungEnterpriseExamProject.Server
             {
                 context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -50,7 +50,7 @@ namespace YoungEnterpriseExamProject.Server
             {
                 context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
                 
@@ -74,7 +74,7 @@ namespace YoungEnterpriseExamProject.Server
             {
                 context.SaveChanges();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                  return false;
             }
@@ -176,7 +176,7 @@ namespace YoungEnterpriseExamProject.Server
                 {
                     context.SaveChanges();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return false;
 
@@ -230,7 +230,7 @@ namespace YoungEnterpriseExamProject.Server
                     {
                         context.SaveChanges();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         return false;
                     }
