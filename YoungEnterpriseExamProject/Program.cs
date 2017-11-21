@@ -15,8 +15,8 @@ namespace YoungEnterpriseExamProject
             //FacadeTest test = new FacadeTest();
             //test.TestReleaseOne();
 
-            UseCaseTest test = new UseCaseTest();
-            test.TestReleaseOne();
+            //UseCaseTest test = new UseCaseTest();
+            //test.TestReleaseOne();
         }
     }
 }

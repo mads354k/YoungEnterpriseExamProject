@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfYoungEnterpriseGUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Account" Height="350" Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="255*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Name="tbAccount" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0"/>
+        <TextBox Name="tbTeam" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Margin="5,0"/>
+        <TextBlock Text="Account Information" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <TextBlock Text="Team Information" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="1"/>
+        <StackPanel Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button Name="bManageTeam" Content="Manage Team" Margin="5" Click="ManageTeam" />
+            <Button Name="bMakeTeam" Content="Make Team" Margin="5" Click="MakeTeam" />
+        </StackPanel>
     </Grid>
 </Window>
