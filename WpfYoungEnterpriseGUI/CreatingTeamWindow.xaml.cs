@@ -22,10 +22,11 @@ namespace WpfYoungEnterpriseGUI
         Controller.Controller controller;
         Facade.EF.Team team;
 
-        public CreatingTeamWindow(Controller.Controller controller)
+        public CreatingTeamWindow(Controller.Controller controller, Facade.EF.Team team)
         {
             InitializeComponent();
             this.controller = controller;
+            this.team = team;
         }
 
         private void CreateTeam(object sender, RoutedEventArgs e)
@@ -34,7 +35,24 @@ namespace WpfYoungEnterpriseGUI
             string track = cbTrack.SelectionBoxItem.ToString();
             string school = null;
 
-            team = controller.CreateTeam(teamName,track,school,false);
+            if (team == null)
+            {
+                team = controller.CreateTeam(teamName, track, school, false);
+
+                if (team == null)
+                {
+                    MessageBox.Show("Team name taken!");
+                }
+                else
+                {
+                    MessageBox.Show("Team created!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Already created a team!");
+            }
+
 
             // todo add persons to the team...
         }

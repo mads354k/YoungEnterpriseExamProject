@@ -31,6 +31,8 @@ namespace WpfYoungEnterpriseGUI
             Facade.EF.Team team = null;
 
             MainWindow window = new MainWindow(controller,team);
+            this.Close();
+            window.Show();
         }
     }
 }

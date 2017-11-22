@@ -39,7 +39,7 @@ namespace WpfYoungEnterpriseGUI
 
         private void MakeTeam(object sender, RoutedEventArgs e)
         {
-            CreatingTeamWindow window = new CreatingTeamWindow(controller);
+            CreatingTeamWindow window = new CreatingTeamWindow(controller,team);
             this.Close();
             window.Show();
         }
